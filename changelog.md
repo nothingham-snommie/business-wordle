@@ -6,3 +6,4 @@
 - Added a config file with a load of settings (cool)
 - Board tiles are now visible
 - Updated the look of keyboard tiles (credit to inspect element :troll:)
+- Added mousedown, mouseup, mouseover and mouseleave events to keyboard keys
