@@ -5,60 +5,80 @@ const keyboardLayout = [
     ["enter","z","x","c","v","b","n","m","backspace"]
 ]
 
-// create buttons
-for (let i=0; i<keyboardLayout.length; i++) {
-    let keyboardRowKeys = keyboardLayout[i]; // has the CONTENTS of a singular keyboard row
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOM is loaded");
+  createKeyboard();
+  console.log("Keyboard created.");
+});
 
-    // setup keyboard row div
-    let keyboardRowContainer = document.createElement("div");
-    keyboardRowContainer.id = "keyboardRow"+String(i)
-    document.getElementById("keyboardContainer").appendChild(keyboardRowContainer);
-
-    for (let j=0; j<keyboardRowKeys.length; j++) {
-        // create base button
-        let keyLetter = keyboardRowKeys[j];
-
-        let btn = document.createElement("button");
-        btn.id = "key_"+keyLetter;
-        //btn.class = "keyboardKey";
-
-        // special case -> enter
-        if (keyLetter == "enter") {
-            btn.innerHTML = "ENTER";
-            btn.onclick = function() {confirm()};
-            btn.onmouseover = function() {document.getElementById(btn.id).style.backgroundColor = "red";}; //can't have external func b/c it must refer to a local var (btn)
-            btn.onmouseleave = function() {document.getElementById(btn.id).style.backgroundColor = "#4CAF50";};
-
+function createKeyboard() {
+    for (let i=0; i<keyboardLayout.length; i++) {
+        let keyboardRowKeys = keyboardLayout[i]; // has the CONTENTS of a singular keyboard row
+    
+        // setup keyboard row div
+        let keyboardRowContainer = document.createElement("div");
+        keyboardRowContainer.id = "keyboardRow"+String(i)
+        keyboardRowContainer.className = "keyboardRow";
+        document.getElementById("keyboardContainer").appendChild(keyboardRowContainer);
+    
+        for (let j=0; j<keyboardRowKeys.length; j++) {
+            // create base button
+            let keyLetter = keyboardRowKeys[j];
+    
+            let btn = document.createElement("button");
+            btn.id = "key_"+keyLetter;
+            btn.className = "keyboardKey";
+            
+    
+            // special case -> enter
+            if (keyLetter == "enter") {
+                btn.innerHTML = "ENTER";
+                btn.onclick = function() {confirm();};
+                btn.onmouseover = function() {hoverReact(btn.id, "green");};
+                btn.onmousedown = function() {hoverReact(btn.id, "darkgreen");};
+                btn.onmouseleave = function() {hoverReact(btn.id, "lightgrey");};
+                btn.onmouseup = function() {hoverReact(btn.id, "lightgrey");};
+                
+    
+            }
+    
+            // special case -> backspace
+            else if (keyLetter == "backspace") {
+                btn.innerHTML = "<--";
+                btn.onclick = function() {backspace()};
+                btn.onmouseover = function() {hoverReact(btn.id, "red");};
+                btn.onmousedown = function() {hoverReact(btn.id, "darkred");};
+                btn.onmouseleave = function() {hoverReact(btn.id, "lightgrey");};
+                btn.onmouseup = function() {hoverReact(btn.id, "lightgrey");};
+            }
+    
+            // general case -> letters
+            else {
+                btn.innerHTML = keyLetter;
+                btn.onclick = function() {typeLetter(keyLetter)};
+                btn.onmouseover = function() {hoverReact(btn.id, "darkgrey");};
+                btn.onmousedown = function() {hoverReact(btn.id, "grey");};
+                btn.onmouseleave = function() {hoverReact(btn.id, "lightgrey");};
+                btn.onmouseup = function() {hoverReact(btn.id, "lightgrey");};
+            }
+    
+            // append key to keyboard row container
+            keyboardRowContainer.appendChild(btn)
         }
-
-        // special case -> backspace
-        else if (keyLetter == "backspace") {
-            btn.innerHTML = "<--";
-            btn.onclick = function() {backspace()};
-            btn.onmouseover = function() {document.getElementById(btn.id).style.backgroundColor = "red";};
-            btn.onmouseleave = function() {document.getElementById(btn.id).style.backgroundColor = "#4CAF50";};
-        }
-
-        // general case -> letters
-        else {
-            btn.innerHTML = keyLetter.toUpperCase();
-            btn.onclick = function() {typeLetter(keyLetter)};
-            btn.onmouseover = function() {document.getElementById(btn.id).style.backgroundColor = "red";};
-            btn.onmouseleave = function() {document.getElementById(btn.id).style.backgroundColor = "#4CAF50";};
-        }
-
-        // append key to keyboard row container
-        keyboardRowContainer.appendChild(btn)
     }
 }
 
+// change button colour on hover
+function hoverReact(id, hoverColour) {
+    document.getElementById(id).style.backgroundColor = hoverColour;
+}
 
 // type letters
 var inputWord = "";
-var maxInputLen = 5;
+var wordLength = 5;
 
 function typeLetter(letter) {
-    if (inputWord.length < maxInputLen) {
+    if (inputWord.length < wordLength) {
         inputWord += letter;
     }
     document.getElementById("disp").innerHTML = inputWord;

@@ -1,21 +1,36 @@
 @font-face {
     font-family: ClearSans;
-    src: url(fonts/ClearSans-Regular.woff);
-  }
+    src: url(fonts/ClearSans-Bold.woff);
+}
 
 @font-face {
     font-family: KarnakCondensed;
-    src: url(fonts/karnakcondensed-normal-700.woff);
-  }
+    src: url(fonts/karnakcondensed-normal-700.woff); /*actual font is karnak-normal-400.woff*/
+}
 
-title {
-    font-family: KarnakCondensed, Arial, Helvetica, sans-serif;
+
+html {
+    height:100%
+}
+
+body {
+    height:100%;
+    margin:0;
+    padding:0;
+    overflow-y:hidden
+}
+
+h1 {
+    font-family: KarnakCondensed, Arial, Helvetica, sans-serif; 
     text-align: center;
+    font-size: 36px;
+    font-weight:normal;
+    font-style:normal
 }
 
 
 button {
-    font-family: ClearSans, "Helvetica Neue", Arial, Helvetica, sans-serif;
+    /*font-family: ClearSans, "Helvetica Neue", Arial, Helvetica, sans-serif;*/
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -31,7 +46,59 @@ button {
 
 div {
     font-family: ClearSans, "Helvetica Neue", Arial, Helvetica, sans-serif;
-    margin: auto;
-    text-align: center;
-    vertical-align: bottom;
+    align-items: center;
+}
+
+#boardContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.boardBox {
+  display: flex;
+  font-family: inherit;
+  font-size: 1.75rem;
+  font-weight: 700;
+  border: 2px solid lightgray;
+  border-radius: 3px;
+  margin: 2.5px;
+  height: 3.5rem;
+  width: 3.5rem;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+#keyboardContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: bottom;
+}
+
+.keyboardRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#keyboardRow1 {
+  margin: 0.2rem 0;
+}
+
+.keyboardKey {
+  display: flex;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 0.8rem;
+  border: 0;
+  padding: 1rem;
+  margin: 2px;
+  height: 3.5rem;
+  border-radius: 4px;
+  background-color: lightgray;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
 }
