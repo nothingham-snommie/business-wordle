@@ -23,3 +23,4 @@ TODO:
 - Update tile "animation" -> maybe a 1-2 frame fade would work
 - Modular theme system, along with dark mode + other topic themes
 - Enlargen the valid and answer word lists
+- make it work on my phon :)
