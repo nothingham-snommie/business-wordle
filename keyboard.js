@@ -57,7 +57,7 @@ function createKeyboard() {
 // type letters
 var inputWord = "";
 var currentGuess = 0;
-// allows inputword to be both updatable and exportable
+
 function typeLetter(letter) {
     if (inputWord.length < wordLength) {
         inputWord += letter;
@@ -69,7 +69,6 @@ async function confirm() {
     if (wordStatus == "proceed") {
         currentGuess += 1;
         inputWord = "";
-        //alert("real!");
     }
     else if (wordStatus == "invalid") {
         alert("invalid");
