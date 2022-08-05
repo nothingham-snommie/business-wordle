@@ -4,9 +4,11 @@ let wordOfTheDay = answerWordList[currentDay % answerWordList.length]; // list w
 async function checkWord(wordToCheck) {
     let wordStatus = [];
     if (wordToCheck.length != wordLength) {
+        alert("not enough letters");
         return("insufficient");
     }
     if (!validWordList.includes(wordToCheck)) {
+        alert("not in word list");
         return ("invalid");
     }
 
