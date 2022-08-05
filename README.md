@@ -1,2 +1,2 @@
 # vudle
-business themed wordle ripoff lol
+babby first web game :)
