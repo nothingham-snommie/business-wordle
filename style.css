@@ -1,104 +1,111 @@
 @font-face {
-    font-family: ClearSans;
-    src: url(fonts/ClearSans-Bold.woff);
+  font-family: ClearSans;
+  src: url(fonts/ClearSans-Bold.woff);
 }
 
 @font-face {
-    font-family: KarnakCondensed;
-    src: url(fonts/karnakcondensed-normal-700.woff); /*actual font is karnak-normal-400.woff*/
+  font-family: KarnakCondensed;
+  src: url(fonts/karnakcondensed-normal-700.woff); /*actual font is karnak-normal-400.woff*/
 }
 
 
 html {
-    height:100%
+  height:100%
 }
 
 body {
-    height:100%;
-    margin:0;
-    padding:0;
-    overflow-y:hidden
+  height:100%;
+  margin:0;
+  padding:0;
+  overflow-y:hidden
 }
 
 h1 {
-    font-family: KarnakCondensed, Arial, Helvetica, sans-serif; 
-    text-align: center;
-    font-size: 36px;
-    font-weight:normal;
-    font-style:normal
+  font-family: KarnakCondensed, Arial, Helvetica, sans-serif; 
+  text-align: center;
+  font-size: 36px;
+  font-weight:normal;
+  font-style:normal
 }
 
 
 button {
-    /*font-family: ClearSans, "Helvetica Neue", Arial, Helvetica, sans-serif;*/
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 18px 12px;
-    text-align: center;
-    vertical-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+  /*font-family: ClearSans, "Helvetica Neue", Arial, Helvetica, sans-serif;*/
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 18px 12px;
+  text-align: center;
+  vertical-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+button:hover {
+background-color:darkgrey;
+}
+
+button:active {
+background-color:grey;
 }
 
 div {
-    font-family: ClearSans, "Helvetica Neue", Arial, Helvetica, sans-serif;
-    align-items: center;
+  font-family: ClearSans, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  align-items: center;
 }
 
 #boardContainer {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+display: flex;
+align-items: center;
+flex-direction: column;
 }
 
 .boardBox {
-  display: flex;
-  font-family: inherit;
-  font-size: 1.75rem;
-  font-weight: 700;
-  border: 2px solid lightgray;
-  border-radius: 3px;
-  margin: 2.5px;
-  height: 3.5rem;
-  width: 3.5rem;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
+display: flex;
+font-family: inherit;
+font-size: 1.75rem;
+font-weight: 700;
+border: 2px solid lightgray;
+border-radius: 3px;
+margin: 2.5px;
+height: 3.5rem;
+width: 3.5rem;
+justify-content: center;
+align-items: center;
+text-transform: uppercase;
 }
 
 #keyboardContainer {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: bottom;
+display: flex;
+align-items: center;
+flex-direction: column;
+margin-bottom: auto;
 }
 
 .keyboardRow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+display: flex;
+justify-content: center;
+align-items: center;
 }
-
 #keyboardRow1 {
-  margin: 0.2rem 0;
+margin: 0.2rem 0;
 }
 
 .keyboardKey {
-  display: flex;
-  font-family: inherit;
-  font-weight: bold;
-  font-size: 0.8rem;
-  border: 0;
-  padding: 1rem;
-  margin: 2px;
-  height: 3.5rem;
-  border-radius: 4px;
-  background-color: lightgray;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
+display: flex;
+font-family: inherit;
+font-weight: bold;
+font-size: 0.8rem;
+border: 0;
+padding: 1rem;
+margin: 2px;
+height: 3.5rem;
+border-radius: 4px;
+background-color: lightgray;
+justify-content: center;
+align-items: center;
+text-transform: uppercase;
 }

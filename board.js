@@ -1,25 +1,49 @@
-wordLength = 5;
-totalGuesses = 6;
+let wordLength = 6;
+let maxGuesses = 6;
 
-let displayWord = "water";
-var display = document.getElementById("boardContainer");
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("DOM is loaded - Board");
+    createBoard();
+    console.log("Game board created.");
+  });
 
-// create board
-for (i=0; i<totalGuesses; i++) {
-    // create row
-    var guess = document.createElement("div");
-    guess.id = "guess_"+String(i);
+
+// create the whole board
+function createBoard() {
+    for (let i=0; i<maxGuesses; i++) {
+        createRow(i);
+    }
+}
+
+// create row
+function createRow(rowID) {
+    let guess = document.createElement("div");
+    guess.id = "guess_"+String(rowID);
     guess.style.display = "flex";
     document.getElementById("boardContainer").appendChild(guess);
-
-    for (j=0; j<wordLength; j++) {
-        // create boxes for one row
-        var box = document.createElement("div");
-        box.id = "box_"+String(i)+String(j);
-        box.className = "boardBox"
-        box.innerHTML = "a";
-
-        guess.appendChild(box);
+    // create all the boxes for one row
+    for (let j=0; j<wordLength; j++) {
+        createBox(rowID, j, guess);
     }
+}
 
+// create one box
+function createBox(rowID, colID, parent) { // hoh god what is this
+    let box = document.createElement("div");
+    box.id = "box_"+String(rowID)+String(colID);
+    box.className = "boardBox";
+    document.body.addEventListener("click", function() { // very much a bodge, me likey
+        if (rowID == currentGuess) {
+            box.innerHTML = inputWord[colID]; 
+            if (box.innerHTML == "undefined") {
+                box.innerHTML = "";
+                console.log("Undefined at "+String(rowID)+String(colID));
+            }
+        }
+    }); 
+    parent.appendChild(box);
+}
+
+function tick(boxObj, column) {
+    boxObj.innerHTML = inputWord[column];
 }

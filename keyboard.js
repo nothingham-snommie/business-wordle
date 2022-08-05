@@ -3,10 +3,10 @@ const keyboardLayout = [
     ["q","w","e","r","t","y","u","i","o","p"],
     ["a","s","d","f","g","h","j","k","l"],
     ["enter","z","x","c","v","b","n","m","backspace"]
-]
+];
 
 document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM is loaded");
+  console.log("DOM is loaded - Keyboard");
   createKeyboard();
   console.log("Keyboard created.");
 });
@@ -34,62 +34,51 @@ function createKeyboard() {
             if (keyLetter == "enter") {
                 btn.innerHTML = "ENTER";
                 btn.onclick = function() {confirm();};
-                btn.onmouseover = function() {hoverReact(btn.id, "green");};
-                btn.onmousedown = function() {hoverReact(btn.id, "darkgreen");};
-                btn.onmouseleave = function() {hoverReact(btn.id, "lightgrey");};
-                btn.onmouseup = function() {hoverReact(btn.id, "lightgrey");};
                 
-    
             }
-    
+            
             // special case -> backspace
             else if (keyLetter == "backspace") {
                 btn.innerHTML = "<--";
                 btn.onclick = function() {backspace()};
-                btn.onmouseover = function() {hoverReact(btn.id, "red");};
-                btn.onmousedown = function() {hoverReact(btn.id, "darkred");};
-                btn.onmouseleave = function() {hoverReact(btn.id, "lightgrey");};
-                btn.onmouseup = function() {hoverReact(btn.id, "lightgrey");};
             }
-    
+            
             // general case -> letters
             else {
                 btn.innerHTML = keyLetter;
                 btn.onclick = function() {typeLetter(keyLetter)};
-                btn.onmouseover = function() {hoverReact(btn.id, "darkgrey");};
-                btn.onmousedown = function() {hoverReact(btn.id, "grey");};
-                btn.onmouseleave = function() {hoverReact(btn.id, "lightgrey");};
-                btn.onmouseup = function() {hoverReact(btn.id, "lightgrey");};
             }
-    
+            
             // append key to keyboard row container
             keyboardRowContainer.appendChild(btn)
         }
     }
 }
-
-// change button colour on hover
-function hoverReact(id, hoverColour) {
-    document.getElementById(id).style.backgroundColor = hoverColour;
-}
-
 // type letters
 var inputWord = "";
-var wordLength = 5;
-
+var currentGuess = 0;
+// allows inputword to be both updatable and exportable
 function typeLetter(letter) {
     if (inputWord.length < wordLength) {
         inputWord += letter;
     }
-    document.getElementById("disp").innerHTML = inputWord;
 }
 
-function confirm() {
-    inputWord = ""
-    document.getElementById("disp").innerHTML = inputWord;
+async function confirm() {
+    let wordStatus = await checkWord(inputWord);
+    if (wordStatus == "proceed") {
+        currentGuess += 1;
+        inputWord = "";
+        //alert("real!");
+    }
+    else if (wordStatus == "invalid") {
+        alert("invalid");
+    }
+    else if (wordStatus == "insufficient") {
+        alert("not enough letters");
+    }
 }
 
 function backspace() {
     inputWord = inputWord.slice(0, -1);
-    document.getElementById("disp").innerHTML = inputWord;
 }
