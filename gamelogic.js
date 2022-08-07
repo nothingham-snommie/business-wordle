@@ -5,11 +5,9 @@ async function checkWord(wordToCheck) {
     let wordStatus = [];
     if (wordToCheck.length != wordLength) {
         alert("not enough letters");
-        return("insufficient");
     }
     if (!validWordList.includes(wordToCheck)) {
         alert("not in word list");
-        return ("invalid");
     }
 
     for (let i=0; i<wordToCheck.length; i++) {
@@ -42,7 +40,7 @@ async function checkWord(wordToCheck) {
             console.log("Unexpected occurrence when colouring squares.");
         }
         codeSquare(currentGuess, i, colour);
-        await new Promise(r => setTimeout(r, 100));
+        await new Promise(r => setTimeout(r, 500));
     }
 
     if (wordStatus.includes(0) || wordStatus.includes(1)) {
@@ -65,7 +63,7 @@ async function checkWord(wordToCheck) {
 // add anims
 // and *that* edge case
 
-function codeSquare(colID, rowID, col) {
+async function codeSquare(colID, rowID, col) {
     let square = document.getElementById("box_"+String(colID)+String(rowID));
     square.style.backgroundColor = col;
     
