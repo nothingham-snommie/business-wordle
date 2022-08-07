@@ -17,6 +17,10 @@
 - Added a list of potential answers that also change with each day 
 - Made the to-do list
 
+07/08/22
+- Slowed down speed at which tiles' colours are revealed (100 -> 500ms)
+- Added a magic line of code that optimises everything for mobile bro trust me 100% real
+
 TODO:
 - Backpedal on some graphic design so I don't get sued into oblivion (not that it's likely, but better safe than sorry ig)
 - Create a well-kept, clean, modular popup system (this is 100% doable i swear)
@@ -24,3 +28,4 @@ TODO:
 - Modular theme system, along with dark mode + other topic themes
 - Enlargen the valid and answer word lists
 - make it work on my phon :)
+  - try and replace all the px in the css with % (or rem?)
