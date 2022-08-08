@@ -5,9 +5,11 @@ async function checkWord(wordToCheck) {
     let wordStatus = [];
     if (wordToCheck.length != wordLength) {
         alert("not enough letters");
+        return
     }
     if (!validWordList.includes(wordToCheck)) {
         alert("not in word list");
+        return
     }
 
     for (let i=0; i<wordToCheck.length; i++) {
@@ -26,17 +28,16 @@ async function checkWord(wordToCheck) {
         }
 
         if (wordStatus[i] == 0) {
-            colour = "grey";
+            colour = "void";
         }
         else if (wordStatus[i] == 1) {
-            colour = "yellow";
+            colour = "okay";
             
         }
         else if (wordStatus[i] == 2) {
-            colour = "green";
+            colour = "good";
         }
         else {
-            colour = "red";
             console.log("Unexpected occurrence when colouring squares.");
         }
         codeSquare(currentGuess, i, colour);
@@ -64,7 +65,7 @@ async function checkWord(wordToCheck) {
 // and *that* edge case
 
 async function codeSquare(colID, rowID, col) {
-    let square = document.getElementById("box_"+String(colID)+String(rowID));
-    square.style.backgroundColor = col;
+    let box = document.getElementById("box_"+String(colID)+String(rowID));
+    box.classList.add("boardBox_"+col);
     
 }

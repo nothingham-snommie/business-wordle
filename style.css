@@ -9,47 +9,37 @@
 }
 
 
-html {
-  height:100%
+:root {
+  --light1: #edf1f1;
+  --light2: #a3adad;
+  --light3: #707e87;
+  --dark1: #48576b;
+  --dark2: #2a3153;
+  --okay1: #ffec05;
+  --okay2: #c99b05;
+  --good1: #68e686; 
+  --good2: #44be6d; 
 }
+
+/*html {
+  height:100%
+}*/
 
 body {
   height:100%;
   margin:0;
   padding:0;
-  overflow-y:hidden
+  overflow-y: auto;
+  background-color: var(--light1);
+  color: var(--dark2);
 }
 
 h1 {
-  font-family: KarnakCondensed, Arial, Helvetica, sans-serif; 
+  font-family: ClearSans, Arial, Helvetica, sans-serif; 
   text-align: center;
   font-size: 36px;
   font-weight:normal;
   font-style:normal
-}
-
-
-button {
-  /*font-family: ClearSans, "Helvetica Neue", Arial, Helvetica, sans-serif;*/
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 18px 12px;
-  text-align: center;
-  vertical-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-button:hover {
-background-color:darkgrey;
-}
-
-button:active {
-background-color:grey;
 }
 
 div {
@@ -57,55 +47,113 @@ div {
   align-items: center;
 }
 
+/* Game Board */
 #boardContainer {
-display: flex;
-align-items: center;
-flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .boardBox {
-display: flex;
-font-family: inherit;
-font-size: 1.75rem;
-font-weight: 700;
-border: 2px solid lightgray;
-border-radius: 3px;
-margin: 2.5px;
-height: 3.5rem;
-width: 3.5rem;
-justify-content: center;
-align-items: center;
-text-transform: uppercase;
+  display: inherit;
+  font-family: inherit;
+  font-size: 1.75rem;
+  font-weight: 700;
+
+  border: 2px solid var(--light2);
+  border-radius: 3px;
+  background-color: var(--light1);
+  color: var(--dark2);
+
+  
+  margin: 2.5px;
+  height: 3.5rem;
+  width: 3.5rem;
+
+  justify-content: center;
+  text-transform: uppercase;
+}
+.boardBox_void {
+  border: 2px solid var(--dark1);
+  background-color: var(--dark1);
+  color: var(--light1);
+}
+.boardBox_okay {
+  border: 2px solid var(--okay1);
+  background-color: var(--okay1);
+  color: var(--light1);
+}
+.boardBox_good {
+  border: 2px solid var(--good1);
+  background-color: var(--good1);
+  color: var(--light1);
 }
 
+/* Keyboard */
 #keyboardContainer {
-display: flex;
-align-items: center;
-flex-direction: column;
-margin-bottom: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: auto;
+  margin: auto;
 }
 
 .keyboardRow {
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 #keyboardRow1 {
-margin: 0.2rem 0;
+  margin: 0.2rem 0;
 }
 
-.keyboardKey {
-display: flex;
-font-family: inherit;
-font-weight: bold;
-font-size: 0.8rem;
-border: 0;
-padding: 1rem;
-margin: 2px;
-height: 3.5rem;
-border-radius: 4px;
-background-color: lightgray;
-justify-content: center;
-align-items: center;
-text-transform: uppercase;
+button {
+  border: none;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 4px 2px;
+  height: 3.5rem;
+
+  text-align: center;
+  vertical-align: center;
+  text-decoration: none;
+
+  display: flex;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 0.8rem;
+  cursor: pointer;
+
+
+  align-items: center;
+  text-transform: uppercase;
+
+}
+.keyboardKey_normal {
+  background-color: var(--light2);
+  color: var(--dark2);
+}
+.keyboardKey_hover {
+  background-color:var(--light3);
+  color: var(--light2);
+}
+.keyboardKey_pressed {
+  background-color:var(--dark1);
+  color: var(--light1);
+}
+.keyboardKey_hover_ENTER {
+  background-color:var(--good1);
+  color: var(--light2);
+}
+.keyboardKey_pressed_ENTER {
+  background-color:var(--good2);
+  color: var(--light1);
+}
+.keyboardKey_hover_BACK {
+  background-color:var(--okay1);
+  color: var(--light2);
+}
+.keyboardKey_pressed_BACK {
+  background-color:var(--okay2);
+  color: var(--light1);
 }

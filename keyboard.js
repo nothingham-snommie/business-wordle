@@ -27,26 +27,37 @@ function createKeyboard() {
     
             let btn = document.createElement("button");
             btn.id = "key_"+keyLetter;
-            btn.className = "keyboardKey";
+            btn.className = "keyboardKey_normal";
             
     
             // special case -> enter
             if (keyLetter == "enter") {
-                btn.innerHTML = "ENTER";
+                btn.innerHTML = "enter";
                 btn.onclick = function() {confirm();};
-                
+                btn.onmouseover = function() {changeButtonStatus("hover_ENTER", btn)};
+                btn.onmousedown = function() {changeButtonStatus("pressed_ENTER", btn)};
+                btn.onmouseleave = function() {changeButtonStatus("normal", btn)};
+                btn.onmouseup = function() {changeButtonStatus("normal", btn)};
             }
             
             // special case -> backspace
             else if (keyLetter == "backspace") {
                 btn.innerHTML = "<--";
                 btn.onclick = function() {backspace()};
+                btn.onmouseover = function() {changeButtonStatus("hover_BACK", btn)};
+                btn.onmousedown = function() {changeButtonStatus("pressed_BACK", btn)};
+                btn.onmouseleave = function() {changeButtonStatus("normal", btn)};
+                btn.onmouseup = function() {changeButtonStatus("normal", btn)};
             }
             
             // general case -> letters
             else {
                 btn.innerHTML = keyLetter;
                 btn.onclick = function() {typeLetter(keyLetter)};
+                btn.onmouseover = function() {changeButtonStatus("hover", btn)};
+                btn.onmousedown = function() {changeButtonStatus("pressed", btn)};
+                btn.onmouseleave = function() {changeButtonStatus("normal", btn)};
+                btn.onmouseup = function() {changeButtonStatus("normal", btn)};
             }
             
             // append key to keyboard row container
@@ -54,6 +65,11 @@ function createKeyboard() {
         }
     }
 }
+
+function changeButtonStatus(buttonStatus, obj) {
+    obj.className = "keyboardKey_"+buttonStatus;
+}
+
 // type letters
 var inputWord = "";
 var currentGuess = 0;
