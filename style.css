@@ -21,9 +21,22 @@
   --good2: #44be6d; 
 }
 
-/*html {
+html {
   height:100%
-}*/
+}
+
+.header {
+  padding: 0;
+  font-size: 36px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.sidebarButton {
+  align-self: stretch;
+}
 
 body {
   height:100%;
@@ -32,6 +45,7 @@ body {
   overflow-y: auto;
   background-color: var(--light1);
   color: var(--dark2);
+  font-family: ClearSans, Arial, Helvetica, sans-serif;
 }
 
 h1 {
@@ -40,11 +54,6 @@ h1 {
   font-size: 36px;
   font-weight:normal;
   font-style:normal
-}
-
-div {
-  font-family: ClearSans, "Helvetica Neue", Arial, Helvetica, sans-serif;
-  align-items: center;
 }
 
 /* Game Board */
@@ -71,22 +80,26 @@ div {
   width: 3.5rem;
 
   justify-content: center;
+  align-items: center;
   text-transform: uppercase;
 }
 .boardBox_void {
   border: 2px solid var(--dark1);
-  background-color: var(--dark1);
   color: var(--light1);
+  animation: fadeVoid 0.2s;
+  animation-fill-mode: forwards;
 }
 .boardBox_okay {
   border: 2px solid var(--okay1);
-  background-color: var(--okay1);
   color: var(--light1);
+  animation: fadeOkay 0.2s;
+  animation-fill-mode: forwards;
 }
 .boardBox_good {
   border: 2px solid var(--good1);
-  background-color: var(--good1);
   color: var(--light1);
+  animation: fadeGood 0.2s;
+  animation-fill-mode: forwards;
 }
 
 /* Keyboard */
@@ -156,4 +169,89 @@ button {
 .keyboardKey_pressed_BACK {
   background-color:var(--okay2);
   color: var(--light1);
+}
+
+
+ /* The Modal (background) */
+.modalBg {
+  display: none;
+  position: fixed;
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto;
+  background-color: rgba(var(--dark2),0.4);
+}
+
+/* Modal Content/Box */
+.modalContent {
+  background-color: var(--light1);
+  margin: 5% auto;
+  padding: 2rem;
+
+  border-radius: 1.5rem;
+  border: none;
+
+  width: 30%;
+  height: 70%;
+
+  position: relative;
+  animation: slideUp;
+  animation-duration: 0.4s
+}
+
+/* The Close Button */
+.close {
+  color: var(--light3);
+  float: right;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: var(--dark2);
+  text-decoration: none;
+  cursor: pointer;
+} 
+
+/* Add Animation */
+@keyframes slideUp {
+  from {top: 100%;}
+  to {top: 0%;}
+}
+
+@keyframes fadeGood {
+  from {background: none;}
+  to {background: var(--good1);}
+}
+@keyframes fadeOkay {
+  from {background: none;}
+  to {background: var(--okay1);}
+}
+@keyframes fadeVoid {
+  from {background: none;}
+  to {background: var(--dark1);}
+}
+/* can you pass args to @keyframes? idk how */
+
+.popup {
+  background-color: var(--light2);
+  color: var(--dark2);
+  margin: 5% auto;
+  padding: 2rem;  
+
+  border-radius: 1.5rem;
+  border: none;
+
+  width: 10%;
+  height: 2.5%;
+
+  align-items: center;
+  justify-items: center;
+
+  position: absolute;
+  top: 50%;
 }

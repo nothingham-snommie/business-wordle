@@ -4,7 +4,8 @@ let wordOfTheDay = answerWordList[currentDay % answerWordList.length]; // list w
 async function checkWord(wordToCheck) {
     let wordStatus = [];
     if (wordToCheck.length != wordLength) {
-        alert("not enough letters");
+        //alert("not enough letters");
+        addPopup("not enough letters");
         return
     }
     if (!validWordList.includes(wordToCheck)) {
@@ -68,4 +69,16 @@ async function codeSquare(colID, rowID, col) {
     let box = document.getElementById("box_"+String(colID)+String(rowID));
     box.classList.add("boardBox_"+col);
     
+}
+
+async function addPopup(text) {
+    let popup = document.createElement("div");
+    console.log("realrelaleroal");
+    popup.className = "popup";
+    popup.innerHTML = text;
+    popup.style.display = "block";
+    document.body.appendChild(popup);
+    await new Promise(r => setTimeout(r, 500));
+    popup.style.display = "none";
+    popup.remove();
 }

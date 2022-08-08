@@ -2,14 +2,26 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+        <meta name="viewport" content="width=device-width,user-scalable=no">
         <link rel="stylesheet" href="style.css"> 
         <title>Vudle</title>
-        
-        <h1>Vudle</h1>
     </head>
 
     <body>
+        <div class="header">
+                <h1>Vudle (WIP)</h1>
+                <button class="sidebarButton" id="settings">Settings</button>
+        </div>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modalBg">
+            <!-- Modal content -->
+            <div class="modalContent">
+                <span class="close">&times;</span>
+                <h2 id="popupTitle">Some text in the Modal..</h2>
+            </div>
+        </div> 
+
         <!--display-->
         <div id="boardContainer"></div>
 
@@ -19,10 +31,12 @@
         <!--keyboard-->
         <div id="keyboardContainer"></div>
     
+    
+    <script src="modal.js"></script>
     <script src="wordlist.js"></script>
     <script src="gamelogic.js"></script> 
-    <script src="keyboard.js"></script> 
     <script src="board.js"></script> 
+    <script src="keyboard.js"></script> 
     
         
     </body>

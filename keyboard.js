@@ -17,7 +17,7 @@ function createKeyboard() {
     
         // setup keyboard row div
         let keyboardRowContainer = document.createElement("div");
-        keyboardRowContainer.id = "keyboardRow"+String(i)
+        keyboardRowContainer.id = "keyboardRow"+String(i);
         keyboardRowContainer.className = "keyboardRow";
         document.getElementById("keyboardContainer").appendChild(keyboardRowContainer);
     
@@ -28,40 +28,43 @@ function createKeyboard() {
             let btn = document.createElement("button");
             btn.id = "key_"+keyLetter;
             btn.className = "keyboardKey_normal";
-            
+
+            function applyButtonResponse(buttonAct, letter) { // letter param for typeLetter() and nothing else
+                if (detectMobile() == true) {
+                    btn.ontouchstart = function() {changeButtonStatus("pressed", btn);};
+                    btn.ontouchend = function() {buttonAct(letter);changeButtonStatus("normal", btn)};
+                    btn.ontouchcancel = function() {changeButtonStatus("normal", btn)};
+                }
+                else {
+                    btn.onclick = function() {buttonAct(letter)};
+                    btn.onmouseover = function() {changeButtonStatus("hover", btn)};
+                    btn.onmousedown = function() {changeButtonStatus("pressed", btn)};
+                    btn.onmouseleave = function() {changeButtonStatus("normal", btn)};
+                    btn.onmouseup = function() {changeButtonStatus("normal", btn)};
+                }
+            }
     
             // special case -> enter
             if (keyLetter == "enter") {
                 btn.innerHTML = "enter";
-                btn.onclick = function() {confirm();};
-                btn.onmouseover = function() {changeButtonStatus("hover_ENTER", btn)};
-                btn.onmousedown = function() {changeButtonStatus("pressed_ENTER", btn)};
-                btn.onmouseleave = function() {changeButtonStatus("normal", btn)};
-                btn.onmouseup = function() {changeButtonStatus("normal", btn)};
+                applyButtonResponse(confirm);
+
             }
             
             // special case -> backspace
             else if (keyLetter == "backspace") {
                 btn.innerHTML = "<--";
-                btn.onclick = function() {backspace()};
-                btn.onmouseover = function() {changeButtonStatus("hover_BACK", btn)};
-                btn.onmousedown = function() {changeButtonStatus("pressed_BACK", btn)};
-                btn.onmouseleave = function() {changeButtonStatus("normal", btn)};
-                btn.onmouseup = function() {changeButtonStatus("normal", btn)};
+                applyButtonResponse(backspace);
             }
             
             // general case -> letters
             else {
                 btn.innerHTML = keyLetter;
-                btn.onclick = function() {typeLetter(keyLetter)};
-                btn.onmouseover = function() {changeButtonStatus("hover", btn)};
-                btn.onmousedown = function() {changeButtonStatus("pressed", btn)};
-                btn.onmouseleave = function() {changeButtonStatus("normal", btn)};
-                btn.onmouseup = function() {changeButtonStatus("normal", btn)};
+                applyButtonResponse(typeLetter, keyLetter);
             }
             
             // append key to keyboard row container
-            keyboardRowContainer.appendChild(btn)
+            keyboardRowContainer.appendChild(btn);
         }
     }
 }
@@ -86,14 +89,23 @@ async function confirm() {
         currentGuess += 1;
         inputWord = "";
     }
-    else if (wordStatus == "invalid") {
-        alert("invalid");
-    }
-    else if (wordStatus == "insufficient") {
-        alert("not enough letters");
-    }
 }
 
 function backspace() {
     inputWord = inputWord.slice(0, -1);
+}
+
+function detectMobile() {
+    const toMatch = [
+        /Android/i,
+        /webOS/i,
+        /iPhone/i,
+        /iPad/i,
+        /iPod/i,
+        /BlackBerry/i,
+        /Windows Phone/i
+    ];
+    return toMatch.some((toMatchItem) => {
+        return navigator.userAgent.match(toMatchItem);
+    });
 }

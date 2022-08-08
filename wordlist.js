@@ -341,6 +341,7 @@ var validWordList = [
     "proven",
     "public",
     "pursue",
+    "qwerty",
     "raised",
     "random",
     "rarely",

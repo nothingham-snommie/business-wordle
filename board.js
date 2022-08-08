@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM is loaded - Board");
     createBoard();
     console.log("Game board created.");
-  });
+});
 
 
 // create the whole board
@@ -41,6 +41,7 @@ function createBox(rowID, colID, parent) { // hoh god what is this
             }
         }
     }); 
+    
     parent.appendChild(box);
 }
 
