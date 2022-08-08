@@ -21,11 +21,17 @@
 - Slowed down speed at which tiles' colours are revealed (100 -> 500ms)
 - Added a magic line of code that optimises everything for mobile bro trust me 100% real
 
+08/08/2022
+- Title no longer uses KarnakCondensed
+- Tied all attributes to a colour to a colour in a fixed (albeit unappealing) colour palette
+  - e.g: boardBox now comes in different classes depending on the colour (there must be a better way surely) 
+
 TODO:
 - Backpedal on some graphic design so I don't get sued into oblivion (not that it's likely, but better safe than sorry ig)
 - Create a well-kept, clean, modular popup system (this is 100% doable i swear)
 - Update tile "animation" -> maybe a 1-2 frame fade would work
 - Modular theme system, along with dark mode + other topic themes
 - Enlargen the valid and answer word lists
+- Remove redundancy in the CSS
 - make it work on my phon :)
   - try and replace all the px in the css with % (or rem?)
