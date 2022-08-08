@@ -26,6 +26,9 @@
 - Tied all attributes to a colour to a colour in a fixed (albeit unappealing) colour palette
   - e.g: boardBox now comes in different classes depending on the colour (there must be a better way surely) 
 
+09/08/2022
+- massive changes remember to update this tomorrow (today)
+
 TODO:
 - Backpedal on some graphic design so I don't get sued into oblivion (not that it's likely, but better safe than sorry ig)
 - Create a well-kept, clean, modular popup system (this is 100% doable i swear)
