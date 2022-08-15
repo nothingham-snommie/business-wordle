@@ -19,7 +19,7 @@ function createBoard() {
 function createRow(rowID) {
     let guess = document.createElement("div");
     guess.id = "guess_"+String(rowID);
-    guess.style.display = "flex";
+    guess.className = "boardRow"
     document.getElementById("boardContainer").appendChild(guess);
     // create all the boxes for one row
     for (let j=0; j<wordLength; j++) {
@@ -32,6 +32,7 @@ function createBox(rowID, colID, parent) { // hoh god what is this
     let box = document.createElement("div");
     box.id = "box_"+String(rowID)+String(colID);
     box.className = "boardBox";
+    box.boxStatus = "normal";
     document.body.addEventListener("click", function() { // very much a bodge, me likey
         if (rowID == currentGuess) {
             box.innerHTML = inputWord[colID]; 
@@ -43,8 +44,4 @@ function createBox(rowID, colID, parent) { // hoh god what is this
     }); 
     
     parent.appendChild(box);
-}
-
-function tick(boxObj, column) {
-    boxObj.innerHTML = inputWord[column];
 }

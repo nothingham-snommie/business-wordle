@@ -4,12 +4,11 @@ let wordOfTheDay = answerWordList[currentDay % answerWordList.length]; // list w
 async function checkWord(wordToCheck) {
     let wordStatus = [];
     if (wordToCheck.length != wordLength) {
-        //alert("not enough letters");
         addPopup("not enough letters");
         return
     }
     if (!validWordList.includes(wordToCheck)) {
-        alert("not in word list");
+        addPopup("not in word list");
         return
     }
 
@@ -39,6 +38,7 @@ async function checkWord(wordToCheck) {
             colour = "good";
         }
         else {
+            colour = "error";
             console.log("Unexpected occurrence when colouring squares.");
         }
         codeSquare(currentGuess, i, colour);
@@ -48,8 +48,8 @@ async function checkWord(wordToCheck) {
     if (wordStatus.includes(0) || wordStatus.includes(1)) {
         // no win
         if (currentGuess+1 >= maxGuesses) {
-            alert("lose");
-            return("lose");
+            addPopup(wordOfTheDay, permanent=true);
+            return;
         } 
         else {
             return("proceed");
@@ -57,28 +57,31 @@ async function checkWord(wordToCheck) {
     }
     else {
         // winning!!!
-        alert("win");
-        return("win");
+        addPopup("well done", permanent=true);
+        return;
     }
 }
-
-// add anims
-// and *that* edge case
+// add *that* edge case
 
 async function codeSquare(colID, rowID, col) {
     let box = document.getElementById("box_"+String(colID)+String(rowID));
     box.classList.add("boardBox_"+col);
+    boxStatus = col;
     
 }
 
-async function addPopup(text) {
+async function addPopup(text, permanent) {
     let popup = document.createElement("div");
     console.log("realrelaleroal");
     popup.className = "popup";
     popup.innerHTML = text;
     popup.style.display = "block";
-    document.body.appendChild(popup);
-    await new Promise(r => setTimeout(r, 500));
-    popup.style.display = "none";
-    popup.remove();
+    document.getElementById("popupContainer").appendChild(popup);
+
+    if (!permanent) {
+        await new Promise(r => setTimeout(r, 500));
+        popup.style.display = "none";
+        popup.remove();
+    }
+
 }
