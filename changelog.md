@@ -28,13 +28,26 @@
 
 09/08/2022
 - massive changes remember to update this tomorrow (today)
+  - well that was a success now wasn't it? (15/08/2022)
+- Added modals and a settings menu
+- Added popups
+- Added fade animation for tiles
+- Misc CSS updates to rely less on px
+- Broke CSS
+
+15/08/2022
+- Rolled back CSS and fully updated it to how it should've been (i am so good at changelogging)
+- Removed modals, will probably just replace with a dropdown available at all times
+- Added new colouring system
+- Popups no longer centred for some reason
+- Fixed fade animation for tiles
+- Title now says WIP
 
 TODO:
 - Backpedal on some graphic design so I don't get sued into oblivion (not that it's likely, but better safe than sorry ig)
 - Create a well-kept, clean, modular popup system (this is 100% doable i swear)
-- Update tile "animation" -> maybe a 1-2 frame fade would work
-- Modular theme system, along with dark mode + other topic themes
+- Modular theme system -> dark mode + other topic themes
 - Enlargen the valid and answer word lists
 - Remove redundancy in the CSS
 - make it work on my phon :)
-  - try and replace all the px in the css with % (or rem?)
+  - try and replace all the px in the css with % (yeah right)
