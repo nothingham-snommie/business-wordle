@@ -43,6 +43,9 @@
 - Fixed fade animation for tiles
 - Title now says WIP
 
+16/08/2022
+- Removed modal.js call in html
+
 TODO:
 - Backpedal on some graphic design so I don't get sued into oblivion (not that it's likely, but better safe than sorry ig)
 - Create a well-kept, clean, modular popup system (this is 100% doable i swear)
