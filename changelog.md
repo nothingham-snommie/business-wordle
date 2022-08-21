@@ -46,11 +46,23 @@
 16/08/2022
 - Removed modal.js call in html
 
+21/08/2022
+- Recoded everything because of a bug i really didn't want to bother with :/
+- took ~2 days lmao
+- everything's a lot better now
+  - e.g: board updates only when you click on the keyboard
+
 TODO:
 - Backpedal on some graphic design so I don't get sued into oblivion (not that it's likely, but better safe than sorry ig)
 - Create a well-kept, clean, modular popup system (this is 100% doable i swear)
 - Modular theme system -> dark mode + other topic themes
-- Enlargen the valid and answer word lists
-- Remove redundancy in the CSS
+- Get answer word list
+- Get CSS to its previous state
+- Add animations
+  - DISABLE INPUT
+  - in gamelogic, create a list that contains the correctness of each letter
+  - cycle through them
+  - colour code the keys
+  - reenable input
 - make it work on my phon :)
   - try and replace all the px in the css with % (yeah right)
