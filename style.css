@@ -1,214 +1,88 @@
-@font-face {
-  font-family: ClearSans;
-  src: url(fonts/ClearSans-Bold.woff);
-}
-
-@font-face {
-  font-family: KarnakCondensed;
-  src: url(fonts/karnakcondensed-normal-700.woff); /*actual font is karnak-normal-400.woff*/
-}
-
-@keyframes fadeGood {
-  from {background-color: none;}
-  to {background-color: var(--good1);}
-}
-@keyframes fadeOkay {
-  from {background-color: none;}
-  to {background-color: var(--okay1);}
-}
-@keyframes fadeBad {
-  from {background-color: none;}
-  to {background-color: var(--bad1);}
-}
-@keyframes fadeVoid {
-  from {background-color: none;}
-  to {background-color: var(--tone7);}
-}
-/* can you pass args to @keyframes? idk how */
-
-:root {
-  --tone1: #e3e7eb;
-  --tone2: #d3d6da;
-  --tone3: #dcdcdc;
-  --tone4: #939598;
-  --tone5: #86888a;
-  --tone6: #7a7d80;
-  --tone7: #343435;
-  --tone8: #212122;
-  --tone9: #121213;
-
-  --okay1: #ffec05;
-  --okay2: #c99b05;
-  --good1: #68e686; 
-  --good2: #44be6d; 
-  --bad1: #e67068; 
-  --bad2: #be4747;
-}
-
-html {
-  height:100%
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 
 body {
-  height:100%;
-  margin:0;
-  padding:0;
-  overflow-y: auto;
-  background-color: var(--tone1);
-  color: var(--tone8);
-  justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
 }
 
-h1 {
-  font-family: ClearSans, Arial, Helvetica, sans-serif; 
-  text-align: center;
-  font-size: 36px;
-  font-weight:normal;
-  font-style:normal
-}
-
-div {
-  font-family: ClearSans, "Helvetica Neue", Arial, Helvetica, sans-serif;
-  align-items: center;
-}
-
-/* Game Board */
 #boardContainer {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width:100%;
 }
 
 .boardRow {
-  display: flex;
+    width: auto;
+
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .boardBox {
-  display: inherit;
-  font-family: inherit;
-  font-size: 1.75rem;
-  font-weight: 700;
+    /* Box */
+    border: 2px solid lightgray;
+    border-radius: 1rem;
+    width: 60px;
+    height: 60px;
+    margin: 2.5px;
 
-  border: 2px solid var(--tone3);
-  border-radius: 4px;
-  background-color: none;
-  color: var(--tone7);
-
-  height: 3.5rem;
-  width: 3.5rem;
-  margin: 0.1rem;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-transform: uppercase;
-
-  animation-duration: 0.2s;
-  animation-fill-mode: forwards;
+    /* Text */
+    color: black;
+    font-size: 36px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+}
+.correct {
+    background-color: green;
+}
+.present {
+    background-color: yellow;
+}
+.absent {
+    background-color: grey;
 }
 
-.boardBox_void {
-  border: 2px solid var(--tone8);
-  color: var(--tone1);
-  animation: fadeVoid;
-  animation-duration: 0.2s;
-  animation-fill-mode: forwards;
-}
-.boardBox_okay {
-  border: 2px solid var(--okay2);
-  color: var(--tone1);
-  animation: fadeOkay;
-  animation-duration: 0.2s;
-  animation-fill-mode: forwards;
-}
-.boardBox_good {
-  border: 2px solid var(--good2);
-  color: var(--tone1);
-  animation: fadeGood;
-  animation-duration: 0.2s;
-  animation-fill-mode: forwards;
-}
-
-/* Keyboard */
 #keyboardContainer {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin: auto;
+    flex-direction: column;
 }
 
 .keyboardRow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#keyboardRow1 {
-  margin: 0.2rem 0;
-}
+    width: 450px;
 
-button {
-  border: none;
-  border-radius: 4px;
-  padding: 1rem;
-  margin: 4px 2px;
-  height: 3.5rem;
-
-  text-align: center;
-  vertical-align: center;
-  text-decoration: none;
-
-  display: flex;
-  font-family: inherit;
-  font-weight: bold;
-  font-size: 0.8rem;
-  cursor: pointer;
-
-
-  align-items: center;
-  text-transform: uppercase;
-
-}
-.keyboardKey_normal {
-  background-color: var(--tone4);
-  color: var(--tone8);
-}
-.keyboardKey_hover {
-  background-color:var(--tone5);
-  color: var(--tone8);
-}
-.keyboardKey_pressed {
-  background-color:var(--tone8);
-  color: var(--tone4);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-/* anims */
-@keyframes slideUp {
-  from {top: 10%;}
-  to {top: 0%;}
+.keyboardKey {
+    width: 40px;
+    height: 40px;
+    margin: 1px;
+    border: none;
+    border-radius: 0.25rem;
+
+    /* Text */
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
 }
-
-.popup {
-  background-color: var(--light2);
-  color: var(--dark2);
-  
-  margin: 1rem;
-  padding: 1rem;  
-  display: inherit;
-
-  border-radius: 1.5rem;
-  border: none;
-
-  position: fixed;
-  z-index: inherit;
-
-  text-align: center;
-  vertical-align: center;
-  text-decoration: none;
+.keyboardKey:hover {
+    filter: brightness(75%);
 }
-
-#popupContainer {
-  position: fixed;
-  z-index: 1;
-  justify-content: center;
-  display: flex;
+.keyboardKey:active {
+    filter: invert();
 }

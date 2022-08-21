@@ -1,87 +1,75 @@
-let currentDay = new Date().getDay();
-let wordOfTheDay = answerWordList[currentDay % answerWordList.length]; // list will loop in (items in the list) days
+const keyClicked = new Event("keyClicked");
+var gameState = "playing";
+var correctWord = "assets";
 
-async function checkWord(wordToCheck) {
-    let wordStatus = [];
-    if (wordToCheck.length != wordLength) {
-        addPopup("not enough letters");
-        return
-    }
-    if (!validWordList.includes(wordToCheck)) {
-        addPopup("not in word list");
-        return
-    }
+async function checkWord() {
+    gameState = "checking";
+    let word = internalBoard[currentGuess];
 
-    for (let i=0; i<wordToCheck.length; i++) {
-        if (wordOfTheDay.indexOf(wordToCheck[i]) == -1) {
-            wordStatus.push(0); // 0 - not in word
-            
-        }
-        else {
-            if (wordToCheck[i] == wordOfTheDay[i]) {
-                wordStatus.push(2); // 2 - in word and in right position
-                
-            }
-            else {
-                wordStatus.push(1); // 1 - in word but in wrong position
-            }
-        }
-
-        if (wordStatus[i] == 0) {
-            colour = "void";
-        }
-        else if (wordStatus[i] == 1) {
-            colour = "okay";
-            
-        }
-        else if (wordStatus[i] == 2) {
-            colour = "good";
-        }
-        else {
-            colour = "error";
-            console.log("Unexpected occurrence when colouring squares.");
-        }
-        codeSquare(currentGuess, i, colour);
-        await new Promise(r => setTimeout(r, 500));
+    if (!validWords.includes(word)) {
+        console.log("not in word list");
+        gameState = "playing";
+        return ("not in word list");
     }
 
-    if (wordStatus.includes(0) || wordStatus.includes(1)) {
-        // no win
-        if (currentGuess+1 >= maxGuesses) {
-            addPopup(wordOfTheDay, permanent=true);
-            return;
+    // keep track of letter frequency (this will matter in the thoothpid edge case grrrrr)
+    // e.g: KENNY -> {K:1, E:1, N:2, Y: 1}
+    // put youtube tutorial to credit here
+    let letterFrequency = {};
+    for (let i=0; i<word.length; i++) {
+        let letter = word[i];
+
+        if (letterFrequency[letter]) {
+           letterFrequency[letter] += 1;
         } 
         else {
-            return("proceed");
+           letterFrequency[letter] = 1;
         }
     }
-    else {
-        // winning!!!
-        addPopup("well done", permanent=true);
-        return;
+    //console.log(letterFrequency);
+
+    // check correct
+    for (let i=0; i<word.length; i++) {
+        let letter = word[i];
+        let currentTile = document.getElementById("boardBox_"+currentGuess+i);
+        let keyTile = document.getElementById("keyboardKey_"+letter);
+
+        if (letter == correctWord[i]) {
+            currentTile.classList.add("correct"); // colour tile
+            keyTile.classList.add("correct"); // colour key
+            letterFrequency[letter] -= 1;
+        }
     }
-}
-// add *that* edge case
-
-async function codeSquare(colID, rowID, col) {
-    let box = document.getElementById("box_"+String(colID)+String(rowID));
-    box.classList.add("boardBox_"+col);
-    boxStatus = col;
-    
-}
-
-async function addPopup(text, permanent) {
-    let popup = document.createElement("div");
-    console.log("realrelaleroal");
-    popup.className = "popup";
-    popup.innerHTML = text;
-    popup.style.display = "block";
-    document.getElementById("popupContainer").appendChild(popup);
-
-    if (!permanent) {
-        await new Promise(r => setTimeout(r, 500));
-        popup.style.display = "none";
-        popup.remove();
+    if (word == correctWord) {
+        console.log("well done");
+        gameState = "win";
+        return("win");
     }
 
+    // check present/invalid
+    for (let i=0; i<word.length; i++) {
+        let letter = word[i]; // surely there's a way to not have to define this twice?
+        let currentTile = document.getElementById("boardBox_"+currentGuess+i);
+        let keyTile = document.getElementById("keyboardKey_"+letter);
+
+        if (!currentTile.classList.contains("correct")) {
+            // is the letter in the correct word        and has it appeared more times than it does in the correct word
+            if (correctWord.includes(letter) && letterFrequency[letter] > 0) {
+                currentTile.classList.add("present"); // colour tile
+                if (!keyTile.classList.contains("correct")) {
+                    keyTile.classList.add("present"); // colour tile unless it's already been coloured correct
+                }       
+                letterFrequency[letter] -= 1;
+            }
+            else { // not in word, or letter has been overcounted
+                currentTile.classList.add("absent"); // colour tile
+                if (!keyTile.classList.contains("correct")) {
+                    keyTile.classList.add("absent"); // colour key, ensuring letters marked absent from overcount don't colour the key grey
+                }
+            
+            }
+        }
+    }
+    gameState = "playing";
+    //return;
 }

@@ -11,90 +11,106 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log("Keyboard created.");
 });
 
+// Create Keyboard
 function createKeyboard() {
-    for (let i=0; i<keyboardLayout.length; i++) {
-        let keyboardRowKeys = keyboardLayout[i]; // has the CONTENTS of a singular keyboard row
-    
-        // setup keyboard row div
-        let keyboardRowContainer = document.createElement("div");
-        keyboardRowContainer.id = "keyboardRow"+String(i);
-        keyboardRowContainer.className = "keyboardRow";
-        document.getElementById("keyboardContainer").appendChild(keyboardRowContainer);
-    
-        for (let j=0; j<keyboardRowKeys.length; j++) {
-            // create base button
-            let keyLetter = keyboardRowKeys[j];
-    
-            let btn = document.createElement("button");
-            btn.id = "key_"+keyLetter;
-            btn.className = "keyboardKey_normal";
+    keyboardLayout.forEach(element => createKeyboardRow(element));
+}
 
-            function applyButtonResponse(buttonAct, letter) { // letter param for typeLetter() and nothing else
-                if (detectMobile() == true) {
-                    btn.ontouchstart = function() {changeButtonStatus("pressed", btn);};
-                    btn.ontouchend = function() {buttonAct(letter);changeButtonStatus("normal", btn)};
-                    btn.ontouchcancel = function() {changeButtonStatus("normal", btn)};
-                }
-                else {
-                    btn.onclick = function() {buttonAct(letter)};
-                    btn.onmouseover = function() {changeButtonStatus("hover", btn)};
-                    btn.onmousedown = function() {changeButtonStatus("pressed", btn)};
-                    btn.onmouseleave = function() {changeButtonStatus("normal", btn)};
-                    btn.onmouseup = function() {changeButtonStatus("normal", btn)};
-                }
-            }
-    
-            // special case -> enter
-            if (keyLetter == "enter") {
-                btn.innerHTML = "enter";
-                applyButtonResponse(confirm);
+function createKeyboardRow(element) {
+    // initialise properties
+    let rowContents = element;
+    let keyboardRow = document.createElement("div");
+    keyboardRow.className = "keyboardRow";
+    keyboardRow.id = "keyboardRow_"+String(element);
 
+    rowContents.forEach(element => createKeyboardKey(element, keyboardRow));
+
+    // append
+    document.getElementById("keyboardContainer").appendChild(keyboardRow);
+}
+
+function createKeyboardKey(element, parent) {
+    // initialise properties
+    let keyboardKey = document.createElement("button");
+    keyboardKey.className = "keyboardKey";
+    keyboardKey.id = "keyboardKey_"+element;
+
+    function applyButtonFunction(buttonAct) {
+        if (detectMobile==true) {
+            // tapppp
+            console.log("This appears to be a mobile device.");
+            keyboardKey.addEventListener("touchstart", function() {buttonAct(element)});
+            //keyboardKey.ontouchstart = function() {buttonAct(element)};
+        }
+        else {
+            console.log("This appears to NOT be a mobile device.");
+            keyboardKey.addEventListener("click", function() {buttonAct(element)});
+            //keyboardKey.onclick = function() {buttonAct(element)};
+        }
+    }
+
+    keyboardKey.innerHTML = element;
+
+    if (element == "enter") {
+        applyButtonFunction(confirm);
+    }
+    else if (element == "backspace") {
+        keyboardKey.innerHTML = "⌫";
+        applyButtonFunction(backspace);
+    }
+    else { // general case --> letters
+        applyButtonFunction(typeLetter);
+    }
+
+    // append
+    parent.appendChild(keyboardKey);
+    
+}
+
+// Game Functions
+var inputWord = "";
+var currentGuess = 0;
+
+async function confirm() {
+    if (gameState == "playing") { // ensure these buttons don't work when the game is over
+        if (inputWord.length == wordLength) {
+            if (currentGuess < (maxGuesses-1)) { // id of the sixth guess is 5 rember !!!
+                checkWord();
+                if (gameState == "playing") {
+                    // go to new row
+                    currentGuess += 1;
+                    inputWord = "";
+                }
+                updateBoard();
             }
-            
-            // special case -> backspace
-            else if (keyLetter == "backspace") {
-                btn.innerHTML = "<--";
-                applyButtonResponse(backspace);
-            }
-            
-            // general case -> letters
             else {
-                btn.innerHTML = keyLetter;
-                applyButtonResponse(typeLetter, keyLetter);
+                gameState = "lose";
+                console.log("lose");
             }
-            
-            // append key to keyboard row container
-            keyboardRowContainer.appendChild(btn);
+        }
+        else {
+            console.log("not enough letters");
+        }   
+    }
+}
+
+async function backspace() {
+    if (gameState == "playing") {
+        inputWord = inputWord.slice(0, -1);
+        updateBoard();
+    }
+}
+
+async function typeLetter(letter) {
+    if (gameState == "playing") {
+        if (inputWord.length < wordLength) {
+            inputWord += letter;
+            updateBoard();
         }
     }
 }
 
-function changeButtonStatus(buttonStatus, obj) {
-    obj.className = "keyboardKey_"+buttonStatus;
-}
-
-// type letters
-var inputWord = "";
-var currentGuess = 0;
-
-function typeLetter(letter) {
-    if (inputWord.length < wordLength) {
-        inputWord += letter;
-    }
-}
-
-async function confirm() {
-    let wordStatus = await checkWord(inputWord);
-    if (wordStatus == "proceed") {
-        currentGuess += 1;
-        inputWord = "";
-    }
-}
-
-function backspace() {
-    inputWord = inputWord.slice(0, -1);
-}
-
+// Detect Mobile
 function detectMobile() {
     const toMatch = [
         /Android/i,
