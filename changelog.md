@@ -52,17 +52,21 @@
 - everything's a lot better now
   - e.g: board updates only when you click on the keyboard
 
-TODO:
-- Backpedal on some graphic design so I don't get sued into oblivion (not that it's likely, but better safe than sorry ig)
-- Create a well-kept, clean, modular popup system (this is 100% doable i swear)
-- Modular theme system -> dark mode + other topic themes
-- Get answer word list
-- Get CSS to its previous state
-- Add animations
+22/08/2022
+- Readded animations
   - DISABLE INPUT
   - in gamelogic, create a list that contains the correctness of each letter
   - cycle through them
   - colour code the keys
   - reenable input
+- Added test answer list along with test definitions
+
+TODO:
+- Glitch => word still process even if it's not on the word list
+- Backpedal on some graphic design so I don't get sued into oblivion (not that it's likely, but better safe than sorry ig)
+- Create a well-kept, clean, modular popup system (this is 100% doable i swear)
+- Modular theme system -> dark mode + other topic themes
+- Get answer word list
+- Get CSS to its previous state
 - make it work on my phon :)
   - try and replace all the px in the css with % (yeah right)
