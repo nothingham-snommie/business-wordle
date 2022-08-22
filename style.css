@@ -32,6 +32,7 @@ body {
     width: 60px;
     height: 60px;
     margin: 2.5px;
+    background-color: none;
 
     /* Text */
     color: black;
@@ -43,14 +44,38 @@ body {
     text-transform: uppercase;
 }
 .correct {
-    background-color: green;
+    animation: colourGood;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
 }
 .present {
-    background-color: yellow;
+    animation: colourOkay;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
 }
 .absent {
-    background-color: grey;
+    animation: colourVoid;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
 }
+
+@keyframes colourGood {
+    from {background-color: none;}
+    to {background-color: green;}
+}
+@keyframes colourOkay {
+    from {background-color: none;}
+    to {background-color: yellow;}
+}
+@keyframes colourBad {
+    from {background-color: none;}
+    to {background-color: red;}
+}
+@keyframes colourVoid {
+    from {background-color: none;}
+    to {background-color: grey;}
+}
+
 
 #keyboardContainer {
     flex-direction: column;
@@ -71,6 +96,7 @@ body {
     margin: 1px;
     border: none;
     border-radius: 0.25rem;
+    animation-duration: 0s;
 
     /* Text */
     font-size: 1.5rem;

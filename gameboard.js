@@ -1,3 +1,4 @@
+const keyClicked = new Event("keyClicked");
 const wordLength = 6;
 const maxGuesses = 6;
 
@@ -43,7 +44,7 @@ function createGameBoardBox(parentRow, rowID, colID) {
     }
     
     boardBox.addEventListener("keyClicked", function() {updateBox()});
-    boardBox.dispatchEvent(keyClicked);
+    //boardBox.dispatchEvent(keyClicked);
 
     parentRow.appendChild(boardBox);
 }

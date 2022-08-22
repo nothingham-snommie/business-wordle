@@ -75,7 +75,7 @@ async function confirm() {
     if (gameState == "playing") { // ensure these buttons don't work when the game is over
         if (inputWord.length == wordLength) {
             if (currentGuess < (maxGuesses-1)) { // id of the sixth guess is 5 rember !!!
-                checkWord();
+                await checkWord();
                 if (gameState == "playing") {
                     // go to new row
                     currentGuess += 1;

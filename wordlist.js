@@ -1501,4 +1501,11 @@ const validWords = [
     "zoloft",
     "zoning",
     "zshops",
-]
+];
+
+const correctWords = [
+    {name:"profit", definition:"test1"},
+    {name:"losses", definition:"test2"},
+    {name:"assets", definition:"test3"},
+    {name:"wealth", definition:"test4"},
+];
