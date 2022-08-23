@@ -1509,3 +1509,10 @@ const correctWords = [
     {name:"assets", definition:"test3"},
     {name:"wealth", definition:"test4"},
 ];
+
+const themes = [
+    "light",
+    "dark",
+    "light-colourblind",
+    "dark-colourblind",
+]

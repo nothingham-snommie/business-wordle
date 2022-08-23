@@ -7,12 +7,6 @@ async function checkWord() {
     gameState = "checking";
     let word = internalBoard[currentGuess];
 
-    if (!validWords.includes(word)) {
-        console.log("not in word list");
-        gameState = "playing";
-        return("not in word list");
-    }
-
     // keep track of letter frequency (this will matter in the thoothpid edge case grrrrr)
     let letterFrequency = {};
     for (let i=0; i<word.length; i++) {
@@ -49,7 +43,7 @@ async function checkWord() {
             // is the letter in the correct word and has it appeared more times than it does in the correct word
             if (correctWord.includes(letter) && letterFrequency[letter] > 0) {
                 boxColourOrder[i] = "present";
-                if (keyColourOrder[i] != "correct") { // colour tile unless it's already been coloured correct
+                if (!keyTile.classList.contains("correct")) { // colour tile unless it's already been coloured correct
                     keyColourOrder[i] = "present"; 
                 }
                 letterFrequency[letter] -= 1; // count letter

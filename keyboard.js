@@ -74,8 +74,14 @@ var currentGuess = 0;
 async function confirm() {
     if (gameState == "playing") { // ensure these buttons don't work when the game is over
         if (inputWord.length == wordLength) {
+            if (!validWords.includes(inputWord)) { // check if word in word list
+                console.log("not in word list");
+                gameState = "playing";
+                return;
+            }
+            await checkWord();
             if (currentGuess < (maxGuesses-1)) { // id of the sixth guess is 5 rember !!!
-                await checkWord();
+                
                 if (gameState == "playing") {
                     // go to new row
                     currentGuess += 1;
