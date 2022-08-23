@@ -61,8 +61,12 @@
   - reenable input
 - Added test answer list along with test definitions
 
+23/08/2022
+- Added select for theme, as well as a test theme list
+- Glitch: word still process even if it's not on the word list --> FIXED
+- Fixed glitch where words wouldn't colour on the last word
+
 TODO:
-- Glitch => word still process even if it's not on the word list
 - Backpedal on some graphic design so I don't get sued into oblivion (not that it's likely, but better safe than sorry ig)
 - Create a well-kept, clean, modular popup system (this is 100% doable i swear)
 - Modular theme system -> dark mode + other topic themes
