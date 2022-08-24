@@ -66,6 +66,12 @@
 - Glitch: word still process even if it's not on the word list --> FIXED
 - Fixed glitch where words wouldn't colour on the last word
 
+24/08/2022
+- Finished implementing the theme system, still needs some polishing
+- CSS almost back to what it was before
+  - Added ClearSans back
+  - No longer using stock preset css colours
+
 TODO:
 - Backpedal on some graphic design so I don't get sued into oblivion (not that it's likely, but better safe than sorry ig)
 - Create a well-kept, clean, modular popup system (this is 100% doable i swear)
