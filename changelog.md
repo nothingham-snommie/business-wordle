@@ -72,7 +72,12 @@
   - Added ClearSans back
   - No longer using stock preset css colours
 
+31/08/2022
+- Added full word list
+- Elongated the keyboard buttons + added some more variables to the CSS
+
 TODO:
+- Add definitions to word list
 - Backpedal on some graphic design so I don't get sued into oblivion (not that it's likely, but better safe than sorry ig)
 - Create a well-kept, clean, modular popup system (this is 100% doable i swear)
 - Modular theme system -> dark mode + other topic themes
