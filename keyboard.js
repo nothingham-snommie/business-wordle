@@ -56,6 +56,7 @@ function createKeyboardKey(element, parent) {
     }
     else if (element == "backspace") {
         keyboardKey.innerHTML = "⌫";
+        // keyboardKey.style.width = document.getElementById("keyboardKey_enter").style.width; // make enter and backspace key width the same
         applyButtonFunction(backspace);
     }
     else { // general case --> letters

@@ -1,0 +1,51 @@
+@keyframes colourGood {
+    from {
+        background-color: none;
+        color: var(--blacktext);
+    }
+
+    to {
+        background-color: var(--good1); 
+        border-color: var(--good2); 
+        color: var(--textcol_alt);
+    }
+}
+
+@keyframes colourOkay {
+    from {
+        background-color: none;
+        color: var(--blacktext);
+    }
+
+    to {
+        background-color: var(--okay1); 
+        border-color: var(--okay2);
+        color: var(--textcol_alt);
+    }
+}
+
+@keyframes colourBad {
+    from {
+        background-color: none;
+        color: var(--blacktext);
+    }
+
+    to {
+        background-color: var(--bad1); 
+        border-color: var(--bad2);
+        color: var(--textcol_alt);
+    }
+}
+
+@keyframes colourVoid {
+    from {
+        background-color: none;
+        color: var(--blacktext);
+    }
+
+    to {
+        background-color: var(--void); 
+        border-color: var(--void2);
+        color: var(--textcol_alt);
+    }
+}

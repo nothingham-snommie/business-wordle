@@ -4,10 +4,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function createUI() {
+    createThemeSelect();
+    createWordSelect();
+}
+
+function createThemeSelect() {
     let themeList = document.createElement("select");
 
     for (let i=0; i<themes.length; i++) {
-        var option = document.createElement("option");
+        let option = document.createElement("option");
         option.value = themes[i].name;
         option.text = themes[i].name;
         option.onclick = function() {switchTheme(themes[i])};
@@ -15,6 +20,21 @@ function createUI() {
     }
 
     document.getElementById("dropdown").appendChild(themeList);
+}
+
+function createWordSelect() {
+    let wordLenList = document.createElement("select");
+
+    for (let i=0; i<businessWords.length; i++) {
+        let option = document.createElement("option");
+        option.value = businessWords[i].wordLen;
+        option.text = businessWords[i].wordLen;
+        option.onclick = function() {wordLength = option.value};
+
+        wordLenList.appendChild(option);
+    }
+
+    document.getElementById("wordLen").appendChild(wordLenList);
 }
 
 let root = document.querySelector(":root");

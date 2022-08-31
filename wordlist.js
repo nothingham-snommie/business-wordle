@@ -1505,53 +1505,101 @@ const validWords = [
 ];
 
 const businessWords = [
-    {length: 6},
-    {name:"profit", definition:"test1"}, // 1.1
-    {name:"losses", definition:"test2"},
-    {name:"wealth", definition:"test4"},
-    {name:"market", definition:"test4"},
-    {name:"stocks", definition:"test4"},
-    {name:"reward", definition:"test4"},
-    {name:"borrow", definition:"test4"},
-    {name:"invest", definition:"test4"},
-    {name:"ethics", definition:"test4"},
-    {name:"shares", definition:"test4"},
-    {name:"prices", definition:"test4"},
+    {
+        wordLen: 5,
+        contents: [
+            {name:"firms", definition:"test1"}, // 1.1
+            {name:"media", definition:"test1"},
+            {name:"adapt", definition:"test1"},
+            {name:"risks", definition:"test1"},
+            {name:"costs", definition:"test1"},
+            {name:"stock", definition:"test1"},
+            {name:"wages", definition:"test1"},
+            {name:"value", definition:"test1"},
+            {name:"share", definition:"test1"}, // holder, market
+            {name:"stake", definition:"test1"},
 
-    {name:"assets", definition:"test3"}, // 1.2
-    {name:"design", definition:"test4"},
-    {name:"choice", definition:"test4"}, // customer
-    {name:"viable", definition:"test4"}, // idea
-    {name:"survey", definition:"test4"},
-    {name:"target", definition:"test4"}, // (1) market (2) aims
-    {name:"chains", definition:"test4"},
-    {name:"trends", definition:"test4"},
-    {name:"income", definition:"test4"},
-    {name:"retail", definition:"test4"},
-    {name:"threat", definition:"test4"},
+            {name:"goods", definition:"test1"}, // 1.2
+            {name:"price", definition:"test1"},
+            {name:"brand", definition:"test1"},
+            {name:"needs", definition:"test1"},
+            {name:"wants", definition:"test1"},
+            {name:"focus", definition:"test1"}, // on your work // groups
+            {name:"trade", definition:"test1"},
+            {name:"depth", definition:"What your analysis needs."},
+            {name:"trend", definition:"test1"},
+            {name:"valid", definition:"test1"},
 
-    {name:"output", definition:"test4"}, // 1.3
-    {name:"margin", definition:"test4"}, // of safety
-    {name:"credit", definition:"test4"},
-    {name:"branch", definition:"test4"},
-    {name:"season", definition:"test4"},
-    {name:"cheque", definition:"test4"},
+            {name:"sales", definition:"test1"}, // 1.3
+            {name:"fixed", definition:"test1"}, // costs
+            {name:"value", definition:"test1"},
+            {name:"loans", definition:"test1"},
+            {name:"money", definition:"test1"},
+            {name:"staff", definition:"test1"},
 
-    {name:"trader", definition:"test4"}, // 1.4 // sole
-    {name:"labour", definition:"test4"},
-    {name:"budget", definition:"test4"},
+            {name:"place", definition:"test1"}, // 1.4
+            {name:"plans", definition:"test1"},
 
-    {name:"online", definition:"test4"}, // 1.5
-    {name:"supply", definition:"test4"},
-    {name:"worker", definition:"test4"},
-    {name:"comply", definition:"test4"},
-    {name:"health", definition:"test4"}, // 1987 act
-    {name:"safety", definition:"test4"},
-    {name:"import", definition:"test4"},
-    {name:"export", definition:"test4"},
-    {name:"strong", definition:"test4"},
-    {name:"dollar", definition:"test4"},
-    {name:"pound", definition:"test4"},
-    {name:"reason", definition:"test4"},
+            {name:"train", definition:"test1"}, // 1,5 // verb
+            {name:"legal", definition:"test1"},
+            {name:"banks", definition:"test1"},
+            {name:"taxes", definition:"test1"},
+            {name:"gross", definition:"test1"}, // GDP, gross profit
+            {name:"franc", definition:"test1"},
+            {name:"pound", definition:"test1"},
 
+        ]
+    },
+
+    {
+        wordLen: 6,
+        contents: [
+            {name:"profit", definition:"test1"}, // 1.1
+            {name:"losses", definition:"test2"},
+            {name:"wealth", definition:"test4"},
+            {name:"market", definition:"test4"},
+            {name:"stocks", definition:"test4"},
+            {name:"reward", definition:"test4"},
+            {name:"borrow", definition:"test4"},
+            {name:"invest", definition:"test4"},
+            {name:"ethics", definition:"test4"},
+            {name:"shares", definition:"test4"},
+            {name:"prices", definition:"test4"},
+        
+            {name:"assets", definition:"test3"}, // 1.2
+            {name:"design", definition:"test4"},
+            {name:"choice", definition:"test4"}, // customer
+            {name:"viable", definition:"test4"}, // idea
+            {name:"survey", definition:"test4"},
+            {name:"target", definition:"test4"}, // (1) market (2) aims
+            {name:"chains", definition:"test4"},
+            {name:"trends", definition:"test4"},
+            {name:"income", definition:"test4"},
+            {name:"retail", definition:"test4"},
+            {name:"threat", definition:"test4"},
+        
+            {name:"output", definition:"test4"}, // 1.3
+            {name:"margin", definition:"test4"}, // of safety
+            {name:"credit", definition:"test4"},
+            {name:"branch", definition:"test4"},
+            {name:"season", definition:"test4"},
+            {name:"cheque", definition:"test4"},
+        
+            {name:"trader", definition:"test4"}, // 1.4 // sole
+            {name:"labour", definition:"test4"},
+            {name:"budget", definition:"test4"},
+        
+            {name:"online", definition:"test4"}, // 1.5
+            {name:"supply", definition:"test4"},
+            {name:"worker", definition:"test4"},
+            {name:"comply", definition:"test4"},
+            {name:"health", definition:"test4"}, // 1987 act
+            {name:"safety", definition:"test4"},
+            {name:"import", definition:"test4"},
+            {name:"export", definition:"test4"},
+            {name:"strong", definition:"test4"},
+            {name:"dollar", definition:"test4"},
+            {name:"reason", definition:"test4"},
+        ],
+    },
 ];

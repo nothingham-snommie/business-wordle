@@ -21,8 +21,10 @@ const themes = [
         void: "var(--tone5)",
         void2: "var(--tone7)",
     
-        blacktext: "var(--tone9)",
-        whitetext: "var(--tone1)",
+        textcol: "var(--tone9)",
+        textcol_alt: "var(--tone1)",
+	    bg: "var(--tone1)",
+        keybg: "var(--tone3)",
     },
 
     {
@@ -47,8 +49,10 @@ const themes = [
         void: "var(--tone7)",
         void2: "var(--tone5)",
     
-        blacktext: "var(--tone9)",
-        whitetext: "var(--tone1)",
+        textcol: "var(--tone9)",
+        textcol_alt: "var(--tone1)",
+        bg: "var(--tone1)",
+        keybg: "var(--tone3)",
     },
 
 ]
