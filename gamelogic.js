@@ -1,7 +1,7 @@
 var gameState = "playing";
 let currentDay = new Date().getDay();
-let correctWord = correctWords[currentDay % correctWords.length].name; // list will loop every correctWords.length days
-let correctDef = correctWords[currentDay % correctWords.length].definition;
+let correctWord = businessWords[currentDay % businessWords.length].name; // list will loop every correctWords.length days
+let correctDef = businessWords[currentDay % businessWords.length].definition;
 
 async function checkWord() {
     gameState = "checking";

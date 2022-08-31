@@ -1504,9 +1504,54 @@ const validWords = [
     "zshops",
 ];
 
-const correctWords = [
-    {name:"profit", definition:"test1"},
+const businessWords = [
+    {length: 6},
+    {name:"profit", definition:"test1"}, // 1.1
     {name:"losses", definition:"test2"},
-    {name:"assets", definition:"test3"},
     {name:"wealth", definition:"test4"},
+    {name:"market", definition:"test4"},
+    {name:"stocks", definition:"test4"},
+    {name:"reward", definition:"test4"},
+    {name:"borrow", definition:"test4"},
+    {name:"invest", definition:"test4"},
+    {name:"ethics", definition:"test4"},
+    {name:"shares", definition:"test4"},
+    {name:"prices", definition:"test4"},
+
+    {name:"assets", definition:"test3"}, // 1.2
+    {name:"design", definition:"test4"},
+    {name:"choice", definition:"test4"}, // customer
+    {name:"viable", definition:"test4"}, // idea
+    {name:"survey", definition:"test4"},
+    {name:"target", definition:"test4"}, // (1) market (2) aims
+    {name:"chains", definition:"test4"},
+    {name:"trends", definition:"test4"},
+    {name:"income", definition:"test4"},
+    {name:"retail", definition:"test4"},
+    {name:"threat", definition:"test4"},
+
+    {name:"output", definition:"test4"}, // 1.3
+    {name:"margin", definition:"test4"}, // of safety
+    {name:"credit", definition:"test4"},
+    {name:"branch", definition:"test4"},
+    {name:"season", definition:"test4"},
+    {name:"cheque", definition:"test4"},
+
+    {name:"trader", definition:"test4"}, // 1.4 // sole
+    {name:"labour", definition:"test4"},
+    {name:"budget", definition:"test4"},
+
+    {name:"online", definition:"test4"}, // 1.5
+    {name:"supply", definition:"test4"},
+    {name:"worker", definition:"test4"},
+    {name:"comply", definition:"test4"},
+    {name:"health", definition:"test4"}, // 1987 act
+    {name:"safety", definition:"test4"},
+    {name:"import", definition:"test4"},
+    {name:"export", definition:"test4"},
+    {name:"strong", definition:"test4"},
+    {name:"dollar", definition:"test4"},
+    {name:"pound", definition:"test4"},
+    {name:"reason", definition:"test4"},
+
 ];
