@@ -31,7 +31,9 @@
 
     --textcol: var(--tone9);
     --textcol_alt: var(--tone1);
-    --bgcolour: var(--tone1);
+    --bg: var(--tone1);
+    --keybg: var(--tone4);
+    --bordercol: var(--tone3);
 }   
 
 
@@ -47,7 +49,7 @@ body {
     font-weight: normal;
     text-align: center;
     color: var(--textcol);
-    background-color: var(--bgcolour);
+    background-color: var(--bg);
 }
 
 #boardContainer {
@@ -69,7 +71,7 @@ body {
 
 .boardBox {
     /* Box */
-    border: 2px solid var(--tone3);
+    border: 2px solid var(--bordercol);
     border-radius: 1rem;
     width: 4rem;
     height: 4rem;
@@ -122,10 +124,12 @@ body {
     border: none;
     border-radius: 0.25rem;
     animation-duration: 0s;
+    background-color: var(--keybg);
 
     /* Text */
     font-size: 1.5rem;
     font-weight: bold;
+    color: var(--textcol);
     display: flex;
     justify-content: center;
     align-items: center;

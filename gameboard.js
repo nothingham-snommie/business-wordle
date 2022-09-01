@@ -1,5 +1,5 @@
 const keyClicked = new Event("keyClicked");
-let wordLength = 6;
+let wordLength = getCookie("wordLength");
 const maxGuesses = 6;
 
 document.addEventListener("DOMContentLoaded", function () {

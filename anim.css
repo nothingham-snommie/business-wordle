@@ -1,7 +1,7 @@
 @keyframes colourGood {
     from {
         background-color: none;
-        color: var(--blacktext);
+        color: var(--textcol);
     }
 
     to {
@@ -14,7 +14,7 @@
 @keyframes colourOkay {
     from {
         background-color: none;
-        color: var(--blacktext);
+        color: var(--textcol);
     }
 
     to {
@@ -27,7 +27,7 @@
 @keyframes colourBad {
     from {
         background-color: none;
-        color: var(--blacktext);
+        color: var(--textcol);
     }
 
     to {
@@ -40,7 +40,7 @@
 @keyframes colourVoid {
     from {
         background-color: none;
-        color: var(--blacktext);
+        color: var(--textcol);
     }
 
     to {
