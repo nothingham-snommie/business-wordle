@@ -76,6 +76,12 @@
 - Added full word list
 - Elongated the keyboard buttons + added some more variables to the CSS
 
+02/09/2022
+- Added 5 letter words
+- Added border colour variable to CSS
+- Added ability to switch between themes and word length
+- Broke the correct word generation - the game is unplayable now :)
+
 TODO:
 - Add definitions to word list
 - Backpedal on some graphic design so I don't get sued into oblivion (not that it's likely, but better safe than sorry ig)
