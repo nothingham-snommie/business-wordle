@@ -87,6 +87,7 @@
 - Unbroke current word generation - the game is playable now :(
 - Added default cookies if the game detects there are none
 - Removed redundant fonts
+- Removed slurs from word list !!
 
 TODO:
 - Load the entire game on DOM load (all the main funcs are kinda all over the place)
