@@ -88,6 +88,7 @@
 - Added default cookies if the game detects there are none
 - Removed redundant fonts
 - Removed slurs from word list !!
+- Themes now update without reloading (but is still saved on reload)
 
 TODO:
 - Load the entire game on DOM load (all the main funcs are kinda all over the place)
