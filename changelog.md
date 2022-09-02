@@ -73,16 +73,22 @@
   - No longer using stock preset css colours
 
 31/08/2022
-- Added full word list
+- Added 5 letter word FUNCTIONALITY
+- Added full business word list
 - Elongated the keyboard buttons + added some more variables to the CSS
 
-02/09/2022
-- Added 5 letter words
+01/09/2022
 - Added border colour variable to CSS
 - Added ability to switch between themes and word length
 - Broke the correct word generation - the game is unplayable now :)
 
+02/09/2022
+- Added 5 letter words to word list
+- Unbroke current word generation - the game is playable now :(
+- Added default cookies if the game detects there are none
+
 TODO:
+- Load the entire game on DOM load (all the main funcs are kinda all over the place)
 - Add definitions to word list
 - Backpedal on some graphic design so I don't get sued into oblivion (not that it's likely, but better safe than sorry ig)
 - Create a well-kept, clean, modular popup system (this is 100% doable i swear)
