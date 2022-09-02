@@ -95,7 +95,5 @@ TODO:
 - Backpedal on some graphic design so I don't get sued into oblivion (not that it's likely, but better safe than sorry ig)
 - Create a well-kept, clean, modular popup system (this is 100% doable i swear)
 - Modular theme system -> dark mode + other topic themes
-- Get answer word list
-- Get CSS to its previous state
 - make it work on my phon :)
   - try and replace all the px in the css with % (yeah right)
