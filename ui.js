@@ -1,31 +1,35 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM is loaded - UI");
     createUI();
+    // no cookies?
+    if (wordLength == "") {
+        setDefaultCookies();
+        location.reload();
+    };
 });
 
 function createUI() {
     createThemeSelect();
     createWordSelect();
     switchTheme(getCookie("theme"));
-}
+};
 
 function createThemeSelect() {
-    let themeList = document.createElement("select");
+    let themeSelect = document.createElement("select");
 
-    for (let i=0; i<themes.length; i++) {
+    for (let i=0; i<themeList.length; i++) {
         let option = document.createElement("option");
-        option.value = themes[i].name;
-        option.text = themes[i].name;
+        option.value = themeList[i].name;
+        option.text = themeList[i].name;
         option.onclick = function() {
-            //switchTheme(themes[i]);
             setCookie("theme", i, 30);
             location.reload();
         };
-        themeList.appendChild(option);
-    }
+        themeSelect.appendChild(option);
+    };
 
-    document.getElementById("dropdown").appendChild(themeList);
-}
+    document.getElementById("dropdown").appendChild(themeSelect);
+};
 
 function createWordSelect() {
     let wordLenList = document.createElement("select");
@@ -40,22 +44,22 @@ function createWordSelect() {
         };
 
         wordLenList.appendChild(option);
-    }
+    };
 
     document.getElementById("wordLen").appendChild(wordLenList);
-}
+};
 
 let root = document.querySelector(":root");
-function switchTheme(theme) { // the pure jank :skull:
-    let themeContents = themes[theme];
+function switchTheme(themeID) { // the pure jank :skull:
+    let themeContents = themeList[themeID];
 
     for (let key in themeContents) {
         if (key != "name") {
-            console.log(key + ' is ' + themeContents[key])
+            //console.log(key + ' is ' + themeContents[key])
             root.style.setProperty("--"+key, themeContents[key]);
-        }
+        };
     };
-}
+};
 
 // COOKIES
 // w3schools my beloved
@@ -63,7 +67,7 @@ function setCookie(cname, cvalue, exdays) {
     const d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     let expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/;SameSite=Lax";
 };
 
 function getCookie(cname) {
@@ -80,4 +84,9 @@ function getCookie(cname) {
       }
     }
     return "";
+};
+
+function setDefaultCookies() {
+    setCookie("wordLength", 5, 30);
+    setCookie("theme", 0, 30);
 };

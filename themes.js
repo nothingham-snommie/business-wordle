@@ -1,4 +1,4 @@
-const themes = [
+const themeList = [
     {
         name:"light",
 

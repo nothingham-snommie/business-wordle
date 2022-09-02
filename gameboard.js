@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM is loaded - Game Board");
     initialiseInternalBoard();
     createGameBoard(); // the game board is essentially a display for the internal board
+    getCorrectWord();
     console.log("Game Board created.");
 });
 
@@ -33,13 +34,13 @@ function createGameBoardBox(parentRow, rowID, colID) {
     boardBox.className = "boardBox";
     boardBox.id = "boardBox_"+rowID+colID; // honestly expected the integers to add up but surprisingly not
 
-    boardBox.innerHTML = "⠀"; // utf-8 invis char (U+2800) "⠀"
+    boardBox.innerHTML = " "; // just in case --> utf-8 invis char (U+2800) "⠀"
 
     function updateBox() {
         console.log("i am going to      update into three");
         boardBox.innerHTML = internalBoard[rowID][colID];
         if (boardBox.innerHTML == "undefined") {
-            boardBox.innerHTML = "⠀";
+            boardBox.innerHTML = " ";
         }
     }
     
