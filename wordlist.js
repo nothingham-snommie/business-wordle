@@ -1097,7 +1097,6 @@ const validWords = [
     "chimed",
     "chimes",
     "chimps",
-    "chinks",
     "chintz",
     "chiral",
     "chirps",
@@ -2098,7 +2097,6 @@ const validWords = [
     "fading",
     "faecal",
     "faeces",
-    "faggot",
     "failed",
     "faints",
     "fairer",
@@ -4981,7 +4979,6 @@ const validWords = [
     "retail",
     "retain",
     "retake",
-    "retard",
     "retell",
     "retest",
     "retied",
@@ -8153,7 +8150,6 @@ const validWords = [
     "facts",
     "faded",
     "fades",
-    "fagot",
     "fails",
     "faint",
     "fairs",
@@ -11250,7 +11246,7 @@ const businessWords = [
             {name:"franc", definition:"test1"},
             {name:"pound", definition:"test1"},
 
-        ]
+        ],
     },
 
     {
